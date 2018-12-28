@@ -1,4 +1,4 @@
-// Frecode camp JS challenges
+// FreeCode Camp JS challenges
 
 // 1. String Reverse
 
@@ -133,3 +133,12 @@ function chunck(arr, size) {
 }
 
 console.log(chunck(['a', 'b', 'c', 'd', 'e'], 4))
+
+// 11. Slasher
+
+function  slasher(arr, howMany) {
+    return arr.slice(howMany)
+}
+
+console.log(slasher([1,2,3], 2))
+
