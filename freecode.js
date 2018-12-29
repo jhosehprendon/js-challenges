@@ -142,3 +142,33 @@ function  slasher(arr, howMany) {
 
 console.log(slasher([1,2,3], 2))
 
+// 12. Mutations
+
+function mutation(arr) {
+    var word1 = arr[0].toLowerCase()
+    var word2 = arr[1].toLowerCase()
+    var bool = false
+    for(var i = 0 ; i < word2.length ; i++) {
+        for(var j = 0; j < word1.length ; j++) {
+            if(word2[i] === word1[j]) {
+                bool = true
+                break;
+            } else {
+                bool = false
+            }
+        }
+    }
+    return bool
+}
+
+console.log(mutation(['helloy', 'hey']))
+
+// 13. Bouncer -- return an array with truthy values
+
+function bouncer(arr) {
+    return arr.filter((el) => {
+        return el
+    })
+}
+
+console.log(bouncer([7, 'ate', '', false, null, undefined, 9]))
