@@ -172,3 +172,18 @@ function bouncer(arr) {
 }
 
 console.log(bouncer([7, 'ate', '', false, null, undefined, 9]))
+
+// 14. Seek and Destroy
+
+function destroyer(arr) {
+    var args = Object.keys(arguments).map(el => {
+        return arguments[el]
+    })
+    var targets = args.slice(1)
+    
+    return arr.filter(el => {
+        return !targets.includes(el)
+    })
+}
+
+console.log(destroyer([1,2,3,1,2,3], 2, 3)) // [1, 1]
