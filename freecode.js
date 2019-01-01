@@ -187,3 +187,76 @@ function destroyer(arr) {
 }
 
 console.log(destroyer([1,2,3,1,2,3], 2, 3)) // [1, 1]
+
+
+// 15. Where do I belong?
+
+function getIndexToIns(arr, num) {
+    arr.push(num)
+
+    arr.sort((a, b) => {
+        return a - b
+    })
+    return arr.indexOf(num)
+}
+
+console.log(getIndexToIns([10, 20, 30, 40, 50], 35))
+
+// 16. Caesar Cipher
+
+function root13(str) {
+    var solved = ''
+    for(var i = 0; i < str.length ; i++) {
+        var ascii = str[i].charCodeAt()
+        if(ascii >= 65 && ascii <= 77){
+            solved += String.fromCharCode(ascii + 13)
+        } else if ( ascii >= 78 && ascii <= 90) {
+            solved += String.fromCharCode(ascii - 13)
+        } else {
+            solved += str[i]
+        }
+    }
+    return solved
+}
+
+console.log(root13('SERR PBQR PNZC'))
+
+// 17. Sum all the numbers in a range
+
+function sumAll(arr) {
+
+    arr.sort((a, b) => {
+        return a-b
+    })
+
+    var start = arr[0]
+    var end = arr[1]
+    var sum = 0
+
+    for (var i = start ; i <= end; i++){
+        sum += i
+    }
+    return sum
+}
+
+console.log(sumAll([4, 1])) // 10
+
+// 18. Diff two arrays
+
+function diff(arr1, arr2) {
+    finalArr = []
+    for ( var i = 0 ; i < arr1.length ; i ++) {
+        if( !arr1.includes(arr1[i]) ) {
+            finalArr.push(arr1[i])
+        }
+    }
+
+    for ( var i = 0 ; i < arr2.length ; i ++) {
+        if( !arr1.includes(arr2[i]) ) {
+            finalArr.push(arr2[i])
+        }
+    }
+    return finalArr
+}
+
+console.log(diff([1,2,3,5], [1,2,3,4,5])) // [4]
