@@ -1,4 +1,4 @@
-// Facebook coding interview question and answer - how many ways to decode this message?
+// Facebook coding interview question and answer - how many ways to decode this message? Javascript
 
 function helper(data, k, memo) {
     var s = data.length - k
@@ -25,6 +25,31 @@ function numWays(data) {
     return helper(data, data.length, memo)
 }
 
-var data = '12' // 2 ways --> 'ab' and 'l'
+var data = '27345' // 2 ways --> 'ab' and 'l'
 
 console.log(numWays(data))
+
+// Fibonacci sequence with Recursion and Momoization
+
+function fib(n) {
+    var memo = new Array(n + 1).fill(null) 
+    if(memo[n] != null) {
+        return memo[n]
+    }
+
+    var result
+
+    if(n == 1 || n == 2) {
+        result = 1
+    } else {
+        result = fib(n - 1) + fib(n - 2)
+    }
+
+    memo[n] = result
+    return result
+
+} 
+
+console.log(fib(4))  // 1 1 2 3 5 8 13
+
+
