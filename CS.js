@@ -77,15 +77,14 @@ console.log(numWaysStairs(3))
 // Variation with option steps
 
 function numWaysStairsX(n, options) {
-    if(n === 0 || n === 1) {
+    if(n === 0) {
         return 1
     }
 
     var nums = new Array(n + 1).fill(null)
     nums[0] = 1
-    nums[1] = 1
 
-    for (var i = 2 ; i < nums.length ; i++) {
+    for (var i = 1 ; i < nums.length ; i++) {
         var total = 0
         for(var j = 0 ; j < options.length ; j++) {
             if(i- options[j] >= 0) {
