@@ -72,7 +72,7 @@ function numWaysStairs(n) {
     return nums[n]
 }
 
-console.log(numWaysStairs(3))
+console.log(numWaysStairs(4))
 
 // Variation with option steps
 
@@ -98,3 +98,28 @@ function numWaysStairsX(n, options) {
 }
 
 console.log(numWaysStairsX(4, [1,3,5]))
+
+// Google interview - Add one to numbers in array
+
+function addOne(arr) {
+    var carry = 1
+    var result = new Array(arr.length).fill(0)
+
+    for(var i = arr.length - 1 ; i >= 0 ; i --) {
+        var total = arr[i] + carry
+        if(total==10) {
+            carry = 1
+        }
+        else {
+            carry = 0
+            result[i] = total % 10
+        }
+    }
+    if(carry==1) {
+        result = new Array(arr.length +1).fill(0) 
+        result[0] = 1
+    }
+    return result
+}
+
+console.log(addOne([9,9,8]))
