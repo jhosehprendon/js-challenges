@@ -25,14 +25,15 @@ function numWays(data) {
     return helper(data, data.length, memo)
 }
 
-var data = '27345' // 2 ways --> 'ab' and 'l'
+var data = '12345' // 2 ways --> 'ab' and 'l'
 
 console.log(numWays(data))
+
 
 // Fibonacci sequence with Recursion and Momoization
 
 function fib(n) {
-    var memo = new Array(n + 1).fill(null) 
+    var memo = new Array(n + 1).fill(null)
     if(memo[n] != null) {
         return memo[n]
     }
@@ -50,6 +51,51 @@ function fib(n) {
 
 } 
 
-console.log(fib(4))  // 1 1 2 3 5 8 13
+console.log(fib(8))  // 1 1 2 3 5 8 13 **21**
 
 
+// Amazon interview - Recursive Staricase Problem
+
+function numWaysStairs(n) {
+    if(n === 0 || n === 1) {
+        return 1
+    }
+
+    var nums = new Array(n + 1).fill(null)
+    nums[0] = 1
+    nums[1] = 1
+
+    for (var i = 2 ; i < nums.length ; i++) {
+        nums[i] = nums[i-1] + nums[i-2]
+    }
+
+    return nums[n]
+}
+
+console.log(numWaysStairs(3))
+
+// Variation with option steps
+
+function numWaysStairsX(n, options) {
+    if(n === 0 || n === 1) {
+        return 1
+    }
+
+    var nums = new Array(n + 1).fill(null)
+    nums[0] = 1
+    nums[1] = 1
+
+    for (var i = 2 ; i < nums.length ; i++) {
+        var total = 0
+        for(var j = 0 ; j < options.length ; j++) {
+            if(i- options[j] >= 0) {
+                total += nums[i - options[j]]
+            }
+        }
+        nums[i] = total
+    }
+
+    return nums[n]
+}
+
+console.log(numWaysStairsX(4, [1,3,5]))
