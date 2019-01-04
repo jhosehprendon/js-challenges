@@ -183,3 +183,29 @@ function rec(str) {
 }
 
 console.log(rec('ABCAOPQP'))
+
+
+// Longest Consecutive Characters
+
+function seq(str) {
+    var result = {}
+    var count = 1
+    var max_count = 0
+    var el
+    for(var i = 0 ; i < str.length -1 ; i++) {
+        if(str[i] === str[i+1]) {
+            count ++
+        } else {
+            count = 1
+        }
+
+        if(count > max_count) {
+            max_count = count
+            el = str[i]
+        }
+    }
+    result[el] = max_count
+    return result
+}
+
+console.log(seq('AAADCCCCCBB'))
