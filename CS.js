@@ -123,3 +123,47 @@ function addOne(arr) {
 }
 
 console.log(addOne([9,9,8]))
+
+
+// Amazon Coding Interview Question - K Closest Points to the Origin
+
+function closest(points, k) {
+    var arr = []
+    for(var i =0 ; i<points.length ; i++) {
+        var obj = {}
+        var x = points[i][0]
+        var y = points[i][1]
+
+        var distance =  Math.sqrt(x*x + y*y)
+
+        obj['coordinates'] = points[i]
+        obj['distance'] = distance
+
+        arr.push(obj)
+    }
+
+    var sortedArr = arr.sort((a,b) => {
+        return a.distance - b.distance
+    })
+
+    var arrResult = []
+
+    for(var i =0 ; i < k ; i ++) {
+        arrResult.push(sortedArr[i]['coordinates'])
+    }
+
+    return arrResult
+
+}
+
+var points = [
+    [-2, 4],
+    [0, -2],
+    [-1, 0],
+    [3, 5],
+    [-2, -3],
+    [3, 2]
+]
+
+console.log(closest(points, 2))
+
