@@ -167,3 +167,19 @@ var points = [
 
 console.log(closest(points, 2))
 
+
+// First Recurring Character
+
+function rec(str) {
+    var arr = []
+    for(var i  = 0 ; i < str.length ; i ++) {
+        if(arr.includes(str[i])) {
+            return str[i]
+        } else {
+            arr.push(str[i])
+        }
+    }
+    return null
+}
+
+console.log(rec('ABCAOPQP'))
